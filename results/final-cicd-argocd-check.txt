@@ -1,0 +1,209 @@
+Sat Jun 27 04:16:31 PM +05 2026
+
+===== GitHub Actions release workflow =====
+completed	success	Merge pull request #4 from timerider33/dev	Publish Docker image	main	push	28287370512	35s	2026-06-27T11:06:40Z
+completed	success	Merge pull request #3 from timerider33/dev	Publish Docker image	main	push	28286445277	26s	2026-06-27T10:24:15Z
+
+===== ArgoCD applications =====
+NAME         SYNC STATUS   HEALTH STATUS
+devops-psu   Synced        Healthy
+
+===== ArgoCD application details =====
+Name:         devops-psu
+Namespace:    argocd
+Labels:       <none>
+Annotations:  <none>
+API Version:  argoproj.io/v1alpha1
+Kind:         Application
+Metadata:
+  Creation Timestamp:  2026-06-27T10:56:53Z
+  Generation:          23
+  Resource Version:    42329
+  UID:                 e27a55f5-2261-4fbe-9bb2-eda98446c04f
+Spec:
+  Destination:
+    Namespace:  devops-psu
+    Server:     https://kubernetes.default.svc
+  Project:      default
+  Source:
+    Path:             server-k8s-manifests
+    Repo URL:         git@github.com:timerider33/Lab10_CI-CD.git
+    Target Revision:  release
+Status:
+  Controller Namespace:  argocd
+  Health:
+    Last Transition Time:  2026-06-27T11:12:47Z
+    Status:                Healthy
+  History:
+    Deploy Started At:  2026-06-27T11:00:47Z
+    Deployed At:        2026-06-27T11:00:48Z
+    Id:                 0
+    Initiated By:
+      Username:  admin
+    Revision:    7cb260b07cb1b45f61e1064ca218e56b4c23f9fa
+    Source:
+      Path:             server-k8s-manifests
+      Repo URL:         git@github.com:timerider33/Lab10_CI-CD.git
+      Target Revision:  release
+    Deploy Started At:  2026-06-27T11:11:53Z
+    Deployed At:        2026-06-27T11:11:53Z
+    Id:                 1
+    Initiated By:
+      Username:  admin
+    Revision:    4c817da70e3fbb2d055185e3dce4dea1c0c8cf94
+    Source:
+      Path:             server-k8s-manifests
+      Repo URL:         git@github.com:timerider33/Lab10_CI-CD.git
+      Target Revision:  release
+  Operation State:
+    Finished At:  2026-06-27T11:11:53Z
+    Message:      successfully synced (all tasks run)
+    Operation:
+      Initiated By:
+        Username:  admin
+      Retry:
+      Sync:
+        Revision:  4c817da70e3fbb2d055185e3dce4dea1c0c8cf94
+        Source:
+          Path:             server-k8s-manifests
+          Repo URL:         git@github.com:timerider33/Lab10_CI-CD.git
+          Target Revision:  release
+        Sync Strategy:
+          Hook:
+    Phase:       Succeeded
+    Started At:  2026-06-27T11:11:53Z
+    Sync Result:
+      Resources:
+        Group:       
+        Hook Phase:  Running
+        Kind:        Namespace
+        Message:     namespace/devops-psu unchanged
+        Name:        devops-psu
+        Namespace:   devops-psu
+        Status:      Synced
+        Sync Phase:  Sync
+        Version:     v1
+        Group:       
+        Hook Phase:  Running
+        Kind:        Service
+        Message:     service/service-devops unchanged
+        Name:        service-devops
+        Namespace:   devops-psu
+        Status:      Synced
+        Sync Phase:  Sync
+        Version:     v1
+        Group:       apps
+        Hook Phase:  Running
+        Images:
+          timerider33/devops-psu:latest
+        Kind:        Deployment
+        Message:     deployment.apps/devops-psu configured
+        Name:        devops-psu
+        Namespace:   devops-psu
+        Status:      Synced
+        Sync Phase:  Sync
+        Version:     v1
+      Revision:      4c817da70e3fbb2d055185e3dce4dea1c0c8cf94
+      Source:
+        Path:              server-k8s-manifests
+        Repo URL:          git@github.com:timerider33/Lab10_CI-CD.git
+        Target Revision:   release
+  Reconciled At:           2026-06-27T11:15:24Z
+  Resource Health Source:  appTree
+  Resources:
+    Kind:       Namespace
+    Name:       devops-psu
+    Status:     Synced
+    Version:    v1
+    Kind:       Service
+    Name:       service-devops
+    Namespace:  devops-psu
+    Status:     Synced
+    Version:    v1
+    Group:      apps
+    Kind:       Deployment
+    Name:       devops-psu
+    Namespace:  devops-psu
+    Status:     Synced
+    Version:    v1
+  Source Hydrator:
+  Source Type:  Directory
+  Summary:
+    Images:
+      timerider33/devops-psu:latest
+  Sync:
+    Compared To:
+      Destination:
+        Namespace:  devops-psu
+        Server:     https://kubernetes.default.svc
+      Source:
+        Path:             server-k8s-manifests
+        Repo URL:         git@github.com:timerider33/Lab10_CI-CD.git
+        Target Revision:  release
+    Revision:             4c817da70e3fbb2d055185e3dce4dea1c0c8cf94
+    Status:               Synced
+Events:
+  Type    Reason              Age    From                           Message
+  ----    ------              ----   ----                           -------
+  Normal  ResourceCreated     19m    argocd-server                  admin created application
+  Normal  ResourceUpdated     19m    argocd-application-controller  Updated sync status:  -> OutOfSync
+  Normal  ResourceUpdated     19m    argocd-application-controller  Updated health status:  -> Healthy
+  Normal  OperationStarted    15m    argocd-server                  admin initiated sync to release (7cb260b07cb1b45f61e1064ca218e56b4c23f9fa)
+  Normal  OperationCompleted  15m    argocd-application-controller  Sync operation to 7cb260b07cb1b45f61e1064ca218e56b4c23f9fa succeeded
+  Normal  ResourceUpdated     15m    argocd-application-controller  Updated sync status: OutOfSync -> Synced
+  Normal  ResourceUpdated     15m    argocd-application-controller  Updated health status: Healthy -> Progressing
+  Normal  ResourceUpdated     15m    argocd-application-controller  Updated health status: Progressing -> Healthy
+  Normal  ResourceUpdated     5m31s  argocd-application-controller  Updated sync status: Synced -> OutOfSync
+  Normal  OperationStarted    4m40s  argocd-server                  admin initiated sync to release (4c817da70e3fbb2d055185e3dce4dea1c0c8cf94)
+  Normal  OperationCompleted  4m40s  argocd-application-controller  Sync operation to 4c817da70e3fbb2d055185e3dce4dea1c0c8cf94 succeeded
+  Normal  ResourceUpdated     4m38s  argocd-application-controller  Updated sync status: OutOfSync -> Synced
+  Normal  ResourceUpdated     4m38s  argocd-application-controller  Updated health status: Healthy -> Progressing
+  Normal  ResourceUpdated     3m46s  argocd-application-controller  Updated health status: Progressing -> Healthy
+
+===== Kubernetes resources in devops-psu namespace =====
+NAME                             READY   STATUS    RESTARTS   AGE
+pod/devops-psu-578d9cd79-f6rwr   1/1     Running   0          4m40s
+
+NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP           PORT(S)           AGE
+service/service-devops   LoadBalancer   10.100.202.79   127.0.0.1,10.0.22.2   12345:30406/TCP   72m
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/devops-psu   1/1     1            1           72m
+
+NAME                                    DESIRED   CURRENT   READY   AGE
+replicaset.apps/devops-psu-578d9cd79    1         1         1       4m40s
+replicaset.apps/devops-psu-75f95858cf   0         0         0       72m
+replicaset.apps/devops-psu-7bbdb9f6c9   0         0         0       51m
+replicaset.apps/devops-psu-7f6dd56784   0         0         0       15m
+
+===== Kubernetes service =====
+NAME             TYPE           CLUSTER-IP      EXTERNAL-IP           PORT(S)           AGE
+service-devops   LoadBalancer   10.100.202.79   127.0.0.1,10.0.22.2   12345:30406/TCP   72m
+
+===== Kubernetes endpoints =====
+Warning: v1 Endpoints is deprecated in v1.33+; use discovery.k8s.io/v1 EndpointSlice
+NAME             ENDPOINTS          AGE
+service-devops   10.244.0.80:8000   72m
+
+===== Deployment rollout status =====
+deployment "devops-psu" successfully rolled out
+
+===== Application response =====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    21  100    21    0     0   9822      0 --:--:-- --:--:-- --:--:-- 10500
+Hello from ArgoCD v2
+
+===== Release branch latest commits =====
+4c817da Release 2026-06-27-110711
+f00e4c5 Merge pull request #4 from timerider33/dev
+287dd11 ArgoCD test - changed dockerfile and index.html
+eb9cb92 Added results folder
+abe345f Merge pull request #3 from timerider33/dev
+
+===== release-date in release manifest =====
+    release-date: "1782558431"
+        release-date: "1782558431"
+

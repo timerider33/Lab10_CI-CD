@@ -19,8 +19,11 @@ class TestMe:
 
 
 if __name__ == '__main__':
+    # SimpleHTTPRequestHandler serves files from the current working directory.
+    # In the container WORKDIR points to the directory containing index.html.
     Handler = http.server.SimpleHTTPRequestHandler
 
+    # Bind to all interfaces so the server is reachable through Docker/Kubernetes.
     with socketserver.TCPServer(("", PORT), Handler) as httpd:
         print("serving at port", PORT)
         httpd.serve_forever()

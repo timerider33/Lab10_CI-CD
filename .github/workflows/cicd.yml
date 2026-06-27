@@ -40,6 +40,7 @@ jobs:
           PYTHONPATH=server pytest server/ --junitxml=junit/test-results.xml
 
   build-test:
+    # Build only after both independent quality checks have passed.
     needs: [ lint, unit-tests ]
     runs-on: ubuntu-24.04
 
@@ -60,4 +61,5 @@ jobs:
         run: docker ps -a
 
       - name: Check HTTP response
+        # -f makes curl return a non-zero exit code for HTTP errors.
         run: curl -f http://127.0.0.1:8000/
