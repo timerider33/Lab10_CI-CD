@@ -12,7 +12,7 @@ metadata:
   labels:
     app: devops-psu
     # release.yml replaces this value with a Unix timestamp on every release.
-    release-date: RELEASE-DATE
+    release-date: "1782559337"
 spec:
   replicas: 1
   selector:
@@ -24,7 +24,7 @@ spec:
         app: devops-psu
         svc: frontend
         # Changing the pod-template label triggers a rollout for the latest tag.
-        release-date: RELEASE-DATE
+        release-date: "1782559337"
     spec:
       containers:
         - name: devops-psu-server
