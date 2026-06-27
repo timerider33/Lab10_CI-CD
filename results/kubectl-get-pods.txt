@@ -1,0 +1,2 @@
+NAME                          READY   STATUS    RESTARTS   AGE
+devops-psu-7bbdb9f6c9-plcgp   1/1     Running   0          7m54s

@@ -1,0 +1,12 @@
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/devops-psu-7bbdb9f6c9-plcgp   1/1     Running   0          5m58s
+
+NAME                     TYPE           CLUSTER-IP      EXTERNAL-IP           PORT(S)           AGE
+service/service-devops   LoadBalancer   10.100.202.79   127.0.0.1,10.0.22.2   12345:30406/TCP   26m
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/devops-psu   1/1     1            1           26m
+
+NAME                                    DESIRED   CURRENT   READY   AGE
+replicaset.apps/devops-psu-75f95858cf   0         0         0       26m
+replicaset.apps/devops-psu-7bbdb9f6c9   1         1         1       5m58s
