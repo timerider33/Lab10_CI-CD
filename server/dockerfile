@@ -6,7 +6,7 @@ RUN useradd runner -d /home/runner -m -s /bin/bash
 
 WORKDIR /usr/local/http-server
 
-ADD ./application.py /usr/local/http-server/application.py
+ADD . /usr/local/http-server/
 
 RUN chown -R runner:runner /usr/local/http-server/
 

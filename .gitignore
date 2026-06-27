@@ -37,3 +37,4 @@ kubectl
 *.deb
 kubectl
 get_helm.sh
+results/argocd-initial-admin-password.txt
