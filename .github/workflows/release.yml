@@ -5,6 +5,7 @@ on:
     branches: [ main ]
 
 permissions:
+  # Required for pushing the generated manifest commit to the release branch.
   contents: write
 
 jobs:
@@ -31,6 +32,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/devops-psu:latest
 
   touch-k8s-manifest:
+    # Publish the GitOps manifest only if the image is already available.
     needs: [ push_to_registry ]
     runs-on: ubuntu-24.04
 
@@ -39,10 +41,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Insert release date into manifest
+        # A new pod-template label forces Kubernetes to pull and deploy :latest.
         run: |
           sed -i "s/release-date: .*/release-date: \"$(date +%s)\"/g" ./server-k8s-manifests/devops-psu.yml
 
       - name: Commit manifest into release branch
+        # Argo CD watches this branch rather than the application source branch.
         run: |
           git config --global user.name 'Release Runner'
           git config --global user.email 'runner@users.noreply.github.com'

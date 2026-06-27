@@ -11,6 +11,7 @@ metadata:
   namespace: devops-psu
   labels:
     app: devops-psu
+    # release.yml replaces this value with a Unix timestamp on every release.
     release-date: RELEASE-DATE
 spec:
   replicas: 1
@@ -22,6 +23,7 @@ spec:
       labels:
         app: devops-psu
         svc: frontend
+        # Changing the pod-template label triggers a rollout for the latest tag.
         release-date: RELEASE-DATE
     spec:
       containers:
@@ -45,6 +47,7 @@ spec:
     app: devops-psu
     svc: frontend
   ports:
+    # Clients use 12345; the Python server listens on 8000 in the container.
     - port: 12345
       targetPort: 8000
   externalIPs:
